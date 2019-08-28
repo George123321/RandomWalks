@@ -1,7 +1,7 @@
 // Potencial.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-#include "pch.h"
+//#include "pch.h"
 #include <iostream>
 #include <vector>
 #include <random>
@@ -9,7 +9,7 @@
 #include <algorithm>
 #include "omp.h"
 
-constexpr long long int N = 100000; // Number of particles;
+
 #define ntrial 350 // The number of total evolutions
 #define ds 0.1
 #define Nbar 100 // The number of samples
@@ -18,6 +18,7 @@ constexpr long long int N = 100000; // Number of particles;
 #define h 1.0
 #define VeryLargeValue 1000
 
+const long int N = 100000; // Number of particles;
 double left = -1;
 double right = 1;
 double D = h * h / (2 * m);
@@ -119,8 +120,8 @@ void space_shift(std::vector<double>& xsite, int trial) {
 
 void fix_particle_number(std::vector<double>& xsite, int trial) {
 	double V_ref_new = 0;
-	long long int dN = xsite.size() - N;
-	long long int N_current = xsite.size();
+	long int dN = xsite.size() - N;
+	long int N_current = xsite.size();
 	std::vector<double> xsiteNew;
 	std::vector<double> NumbersToDelete;
 	if (dN >= 0) {
